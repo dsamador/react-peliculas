@@ -1,7 +1,7 @@
-import PeliculaIndividual from './peliculas/PeliculaIndividual';
 import { landingPageDTO } from './peliculas/peliculas.model';
 import ListadoPeliculas from './peliculas/ListadoPeliculas';
 import { useEffect, useState } from 'react';
+import Menu from './utils/Menu';
 
 function App() {
 
@@ -29,19 +29,21 @@ function App() {
           }
         ]
       })
-    }, 3000);
+    }, 500);
     return () => clearTimeout(timerId)
   })
 
   return (
     <>
-      <h3>En cartelera</h3>
-      <ListadoPeliculas peliculas={peliculas.enCartelera}/>
-      <h3>Proximos estrenos</h3>
-      <ListadoPeliculas peliculas={peliculas.proximosEstrenos}/>
+      <Menu />
+      <div className='container'>
+        <h3>En cartelera</h3>
+        <ListadoPeliculas peliculas={peliculas.enCartelera}/>
+        <h3>Proximos estrenos</h3>
+        <ListadoPeliculas peliculas={peliculas.proximosEstrenos}/>
+      </div>
     </>
-  )
-  
+  )  
 }
 
 export default App;

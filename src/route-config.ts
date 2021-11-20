@@ -1,4 +1,4 @@
-import CrearActores from './actores/CrearActor';
+import CrearActores from './actores/CrearActores';
 import EditarActores from './actores/EditarActor';
 import IndiceActores from './actores/IndiceActores';
 

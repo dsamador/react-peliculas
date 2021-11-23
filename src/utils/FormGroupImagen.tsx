@@ -7,6 +7,7 @@ export default function FormGroupImagen(props: formGroupImagen){
     const imgStyle = {width: '100%'}
 
     const [imagenBase64, setImagenBase64] = useState('');
+    const [imagenURL, setImagenURL] = useState(props.imagenURL);
     const {values} = useFormikContext<any>();
 
     const ManejarOnChange = (e: ChangeEvent<HTMLInputElement>)=>{
@@ -16,6 +17,7 @@ export default function FormGroupImagen(props: formGroupImagen){
                 .then((representacionBase64: string)=> setImagenBase64(representacionBase64))
                 .catch(error => console.error(error));
             values[props.campo] = archivo;
+            setImagenURL('');//Elimina la anterior imagen
         }
     }
 
@@ -41,6 +43,13 @@ export default function FormGroupImagen(props: formGroupImagen){
                     </div>
                 </div> : null
             }
+            {imagenURL ? 
+                <div>
+                    <div style={divStyle}>
+                        <img style={imgStyle} src={imagenURL} alt="imagen seleccionada" />
+                    </div>
+                </div> : null
+            }
         </div>
     )
 }
@@ -48,5 +57,9 @@ export default function FormGroupImagen(props: formGroupImagen){
 interface formGroupImagen{
     campo: string;
     label: string;
-    imagenURL?: string;
+    imagenURL: string;
+}
+
+FormGroupImagen.defaultProps = {
+    imagenURL: ''
 }

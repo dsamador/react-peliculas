@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
+import FormularioCines from './FormularioCines';
 
 export default function EditarCines(){
     return (
         <>        
             <h3>Editar Cines</h3>
-            <Link to='cines/crear'>Crear cine</Link>
+            <FormularioCines 
+                modelo={{nombre:'Colombia Salvaje'}}
+                onSubmit={valores => console.log(valores)}
+            />
         </>
     )
 }

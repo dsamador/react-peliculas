@@ -5,7 +5,8 @@ export default function CrearActores(){
         <>        
             <h3>Crear Actor</h3>
             <FormularioActores
-                modelo={{nombre:'Fulanito', 
+                modelo={{nombre:'Fulanito',
+                biografia: '#Tom Ha nacido en **MD**',
                 fechaNacimiento:new Date('1996-06-01T00:00:00'),
                 fotoURL:''
             }}                

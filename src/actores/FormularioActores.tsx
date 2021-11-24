@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import * as Yup from 'yup';
 import FormGroupFecha from '../utils/FormGroupFecha';
 import FormGroupImagen from "../utils/FormGroupImagen";
+import FormGroupMarkdown from '../utils/FormGroupMarkdown';
 
 export default function FormularioActores(props:formularioActoresProps){
     return (
@@ -14,7 +15,8 @@ export default function FormularioActores(props:formularioActoresProps){
             onSubmit={props.onSubmit}
             validationSchema={Yup.object({
                 nombre: Yup.string().required('Este campo es requerido').primeraLetraMayuscula(),
-                fechaNacimiento: Yup.date().nullable().required('Este campo es requerido')
+                fechaNacimiento: Yup.date().nullable().required('Este campo es requerido'),
+                foto: Yup.string().required('Pon una fotico')
             })}
         >
             {(formikProps) => (
@@ -22,6 +24,7 @@ export default function FormularioActores(props:formularioActoresProps){
                     <FormGroupText campo="nombre" label="Nombre" />
                     <FormGroupFecha label="Fecha Nacimiento" campo="fechaNacimiento" />                    
                     <FormGroupImagen campo='foto' label='Foto' imagenURL={props.modelo.fotoURL}/>
+                    <FormGroupMarkdown campo="biografia" label="Biografia" />
 
                     <Button disabled={formikProps.isSubmitting}
                         type="submit"

@@ -4,6 +4,8 @@ import * as Yup from 'yup';
 import FormGroupText from '../utils/FormGroupText';
 import Button from '../utils/Button';
 import { Link } from 'react-router-dom';
+import Mapa from '../utils/Mapa';
+import { coordenadaDTO } from '../utils/coordenadas.model';
 export default function FormularioCines(props: formularioCinesProps) {
     return (
         <Formik
@@ -16,6 +18,11 @@ export default function FormularioCines(props: formularioCinesProps) {
             {(formikProps)=>(
                 <Form>
                     <FormGroupText label="Nombre" campo="nombre" />
+
+                    <div style={{marginBottom: '1rem'}}>
+                        <Mapa />
+                    </div>
+
                     <Button disabled={formikProps.isSubmitting} type="submit">Salvar</Button>
                     <Link className="btn btn-secondary" to="/cines">Cancelar</Link>
                 </Form>
@@ -23,7 +30,6 @@ export default function FormularioCines(props: formularioCinesProps) {
         </Formik>
     )
 }
-
 
 interface formularioCinesProps{
     modelo: cineCreacionDTO;

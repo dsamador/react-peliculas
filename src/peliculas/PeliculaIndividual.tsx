@@ -1,4 +1,3 @@
-import React from 'react'
 import { pelicula } from './peliculas.model';
 import css from './PeliculaIndividual.module.css';
 

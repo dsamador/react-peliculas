@@ -57,7 +57,7 @@ export default function FormGroupImagen(props: formGroupImagen){
 interface formGroupImagen{
     campo: string;
     label: string;
-    imagenURL: string;
+    imagenURL: string | null; //sino da error
 }
 
 FormGroupImagen.defaultProps = {

@@ -27,7 +27,8 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
     const [cinesNoSeleccionados, setCinesNoSeleccionados] = 
         useState(mapear(props.cinesNoSeleccionados));
 
-    const [actoresSeleccionados, setActoresSeleccionados] = useState<actorPeliculaDTO[]>([])
+    const [actoresSeleccionados, setActoresSeleccionados] = 
+        useState<actorPeliculaDTO[]>(props.actoresSeleccionados)
     
 
     function mapear(arreglo: {id: number, nombre: string}[]): selectorMultipleModel[]{
@@ -42,6 +43,7 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
             onSubmit={(valores, acciones) => {
                 valores.generosIds = generosSeleccionados.map(valor => valor.llave);
                 valores.cinesIds = cinesSeleccionados.map(valor => valor.llave);
+                valores.actores = actoresSeleccionados;
                 props.onSubmit(valores, acciones);
             }}
             validationSchema={Yup.object({
@@ -54,9 +56,7 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
                     <FormGroupCheckbox label="En cines" campo="enCines" />
                     <FormGroupText label="Trailer" campo="trailer" />
                     <FormGroupFecha label="Fecha" campo="fechaLanzamiento" />
-                    <FormGroupImagen label="Poster" campo="poster" imagenURL={props.modelo.posterURL} />
-                    <Button type="submit" disabled={formikProps.isSubmitting} >Enviar</Button>
-                    <Link className="btn btn-secondary" to="/" >Cancelar</Link>
+                    <FormGroupImagen label="Poster" campo="poster" imagenURL={props.modelo.posterURL} />                    
                     
                     {/* Selector de generos */}
                     <div className="form-group">
@@ -108,6 +108,10 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
                             </>}
                         />
                     </div>
+                    <div className="mb-4">
+                        <Button type="submit" disabled={formikProps.isSubmitting} >Enviar</Button>
+                        <Link className="btn btn-secondary" to="/" >Cancelar</Link>
+                    </div>
 
                 </Form>
             )}
@@ -121,5 +125,6 @@ interface formularioPeliculasProps{
     generosSeleccionados: generoDTO[];
     generosNoSeleccionados: generoDTO[];
     cinesSeleccionados: cineDTO[];    
-    cinesNoSeleccionados: cineDTO[];    
+    cinesNoSeleccionados: cineDTO[];   
+    actoresSeleccionados: actorPeliculaDTO[];
 }

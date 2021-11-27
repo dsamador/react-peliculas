@@ -13,6 +13,7 @@ import { useState } from 'react';
 import { selectorMultipleModel } from '../utils/SelectorMultiple';
 import { cineDTO } from '../cines/cines.model';
 import TypeAheadActores from '../actores/TypeAheadActores';
+import { actorPeliculaDTO } from '../actores/FormularioActores.model';
 
 export default function FormularioPeliculas(props: formularioPeliculasProps) {
 
@@ -26,6 +27,7 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
     const [cinesNoSeleccionados, setCinesNoSeleccionados] = 
         useState(mapear(props.cinesNoSeleccionados));
 
+    const [actoresSeleccionados, setActoresSeleccionados] = useState<actorPeliculaDTO[]>([])
     
 
     function mapear(arreglo: {id: number, nombre: string}[]): selectorMultipleModel[]{
@@ -82,7 +84,28 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
 
                     <div className="form-group">
                         <TypeAheadActores 
-                            actores={[]}
+                            onAdd={actores=>{
+                                setActoresSeleccionados(actores)
+                            }}
+                            onRemove={actor => {
+                                const actores = actoresSeleccionados.filter(x => x !== actor);
+                                setActoresSeleccionados(actores);
+                            }}
+                            actores={actoresSeleccionados}
+                            listadoUI={(actor: actorPeliculaDTO)=> 
+                            <>
+                                {actor.nombre} / <input placeholder="Personaje" 
+                                type="text" value={actor.personaje}
+                                onChange={e => {
+                                    const indice = actoresSeleccionados
+                                        .findIndex(x => x.id === actor.id);
+                                    
+                                    const actores = [...actoresSeleccionados];
+                                    actores[indice].personaje = e.currentTarget.value;
+                                    setActoresSeleccionados(actores);                                    
+                                }}
+                                />
+                            </>}
                         />
                     </div>
 

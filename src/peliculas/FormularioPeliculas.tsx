@@ -12,6 +12,7 @@ import { generoDTO } from '../generos/generos.model';
 import { useState } from 'react';
 import { selectorMultipleModel } from '../utils/SelectorMultiple';
 import { cineDTO } from '../cines/cines.model';
+import TypeAheadActores from '../actores/TypeAheadActores';
 
 export default function FormularioPeliculas(props: formularioPeliculasProps) {
 
@@ -76,6 +77,12 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
                                 setCinesSeleccionados(seleccionados);
                                 setCinesNoSeleccionados(noSeleccionados);
                             }}
+                        />
+                    </div>
+
+                    <div className="form-group">
+                        <TypeAheadActores 
+                            actores={[]}
                         />
                     </div>
 

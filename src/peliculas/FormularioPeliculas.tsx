@@ -24,7 +24,7 @@ export default function FormularioPeliculas(props: formularioPeliculasProps) {
                     <FormGroupText label="Trailer" campo="trailer" />
                     <FormGroupFecha label="Fecha" campo="fechaLanzamiento" />
                     <FormGroupImagen label="Poster" campo="poster" imagenURL={props.modelo.posterURL} />
-                    <Button disabled={formikProps.isSubmitting} >Enviar</Button>
+                    <Button type="submit" disabled={formikProps.isSubmitting} >Enviar</Button>
                     <Link className="btn btn-secondary" to="/" >Cancelar</Link>
                 </Form>
             )}

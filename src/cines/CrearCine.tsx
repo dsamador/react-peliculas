@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import FormularioCines from './FormularioCines';
 
 export default function CrearCines(){

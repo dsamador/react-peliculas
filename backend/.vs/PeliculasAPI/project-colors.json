@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "2f51ce09-cb97-4df7-8a17-5f3739045bcd": {
+      "ProjectGuid": "2f51ce09-cb97-4df7-8a17-5f3739045bcd",
+      "DisplayName": "PeliculasAPI",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}

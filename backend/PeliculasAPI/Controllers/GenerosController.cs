@@ -18,40 +18,40 @@ namespace PeliculasAPI.Controllers
         [HttpGet] //api/generos
         [HttpGet("listado")] //api/generos/listado
         [HttpGet("/listadogeneros")] // /listadogeneros
-        public List<Genero> Get()
+        public ActionResult<List<Genero>> Get()
         {
             return repositorio.ObtenerTodosLosGeneros();
         }
 
         [HttpGet("{Id:int}/{nombre=Roberto}")]
-        public Genero Get(int id)
+        public ActionResult<Genero> Get(int id)
         {
             var genero = repositorio.ObtenerPorId(id);
 
             if(genero == null)
             {
-                //return NotFound();
+                return NotFound();//esto viene de ActionResult
             }                
 
             return genero;
         }
 
         [HttpPost]
-        public void Post()
+        public ActionResult Post()
         {
-
+            return NoContent(); 
         }
 
         [HttpPut]
-        public void Put()
+        public ActionResult Put()
         {
-
+            return NoContent();
         }
 
         [HttpDelete]
-        public void Delete()
+        public ActionResult Delete()
         {
-
+            return NoContent();
         }
     }
 }

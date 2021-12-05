@@ -1,6 +1,8 @@
 ﻿using PeliculasAPI.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace PeliculasAPI.Repositorios
 {
@@ -20,9 +22,10 @@ namespace PeliculasAPI.Repositorios
             return _generos;
         }
 
-        public Genero ObtenerPorId(int Id)
+        public async Task<Genero> ObtenerPorId(int Id)
         {
-            return _generos.FirstOrDefault(x => x.Id == Id);
+            await Task.Delay(TimeSpan.FromSeconds(2));
+            return  _generos.FirstOrDefault(x => x.Id == Id);
         }
     }
 }

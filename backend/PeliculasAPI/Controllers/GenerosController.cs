@@ -2,6 +2,7 @@
 using PeliculasAPI.Entidades;
 using PeliculasAPI.Repositorios;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace PeliculasAPI.Controllers
 {
@@ -24,9 +25,9 @@ namespace PeliculasAPI.Controllers
         }
 
         [HttpGet("{Id:int}/{nombre=Roberto}")]
-        public ActionResult<Genero> Get(int id)
+        public async Task<ActionResult<Genero>> Get(int id)
         {
-            var genero = repositorio.ObtenerPorId(id);
+            var genero = await repositorio.ObtenerPorId(id);
 
             if(genero == null)
             {

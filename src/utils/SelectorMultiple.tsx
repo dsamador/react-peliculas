@@ -34,8 +34,10 @@ export default function SelectorMultiple(props: selectorMultipleProps) {
                     <li key={item.llave} onClick={()=>seleccionar(item)} >{item.valor}</li> )}
             </ul>
             <div className="selector-multiple-botones">
-                <button type="button" onClick={seleccionarTodo}>{'>>'}</button>
-                <button type="button" onClick={deseleccionarTodo }>{'<<'}</button>                
+                <span>Agregar todo</span>
+                <button className="btn btn-primary" type="button" onClick={seleccionarTodo}>{'>>'}</button>                
+                <span>Quitar todo</span>
+                <button className="btn btn-warning" type="button" onClick={deseleccionarTodo }>{'<<'}</button>                
             </div>
 
             <ul>

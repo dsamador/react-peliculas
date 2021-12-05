@@ -8,7 +8,7 @@ import FormGroupFecha from '../utils/FormGroupFecha';
 import FormGroupImagen from "../utils/FormGroupImagen";
 import FormGroupMarkdown from '../utils/FormGroupMarkdown';
 
-export default function FormularioActores(props:formularioActoresProps){
+export default function FormularioActores(props: formularioActoresProps){
     return (
         <Formik
             initialValues={props.modelo}

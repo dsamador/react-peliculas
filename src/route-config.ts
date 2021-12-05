@@ -10,10 +10,11 @@ import CrearGenero from './generos/CrearGenero';
 import EditarGenero from './generos/EditarGenero';
 import IndiceGeneros from './generos/IndiceGeneros';
 
-import LandingPage from './LandingPage';
 import CrearPeliculas from './peliculas/CrearPeliculas';
 import EditarPeliculas from './peliculas/EditarPeliculas';
 import FiltroPeliculas from './peliculas/FiltroPeliculas';
+
+import LandingPage from './LandingPage';
 import RedireccionarALanding from './utils/RedireccionarALanding';
 
 const rutas = [

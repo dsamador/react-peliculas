@@ -1,5 +1,6 @@
 ﻿using PeliculasAPI.Entidades;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace PeliculasAPI.Repositorios
 {
@@ -17,6 +18,11 @@ namespace PeliculasAPI.Repositorios
         public List<Genero> ObtenerTodosLosGeneros()
         {
             return _generos;
+        }
+
+        public Genero ObtenerPorId(int Id)
+        {
+            return _generos.FirstOrDefault(x => x.Id == Id);
         }
     }
 }

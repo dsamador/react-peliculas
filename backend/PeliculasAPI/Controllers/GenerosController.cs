@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 namespace PeliculasAPI.Controllers
 {
     [Route("api/generos")]
+    [ApiController]// si el modelo de una accion es invalido se devuelve un error
     public class GenerosController: ControllerBase //tiene el 404
     {
         private readonly IRepositorio repositorio;
@@ -27,12 +28,7 @@ namespace PeliculasAPI.Controllers
 
         [HttpGet("{Id:int}")]
         public async Task<ActionResult<Genero>> Get(int Id, [FromHeader] string nombre)
-        {
-            if(!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
+        {        
             var genero = await repositorio.ObtenerPorId(Id);
 
             if(genero == null)

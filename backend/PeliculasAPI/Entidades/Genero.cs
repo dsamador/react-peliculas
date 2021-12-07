@@ -23,6 +23,9 @@ namespace PeliculasAPI.Entidades
         [Url]
         public string URL { get; set; }
 
+
+        //Estas validaciones por modelo solo se ejecutan cuando son exitosas las validaciones
+        //por atributo, sino no.
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (!string.IsNullOrEmpty(Nombre))

@@ -16,16 +16,31 @@ namespace PeliculasAPI.Repositorios
                 new Genero(){Id = 1, Nombre= "Comedia"},
                 new Genero(){Id = 2, Nombre= "Accion"}
             };
+
+            _guid = Guid.NewGuid();
         }
-        public List<Genero> ObtenerTodosLosGeneros()
+
+        public Guid _guid;
+        public List<Genero> obtenerTodosLosGeneros()
         {
             return _generos;
         }
 
-        public async Task<Genero> ObtenerPorId(int Id)
+        public async Task<Genero> obtenerPorId(int Id)
         {
             await Task.Delay(TimeSpan.FromSeconds(2));
             return  _generos.FirstOrDefault(x => x.Id == Id);
+        }
+
+        public Guid obtenerGuid()
+        {
+            return _guid;
+        }
+
+        public void crearGenero(Genero genero)
+        {
+            genero.Id = _generos.Count() + 1;
+            _generos.Add(genero);
         }
     }
 }

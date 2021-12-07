@@ -30,7 +30,7 @@ namespace PeliculasAPI.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            repositorio.ObtenerTodosLosGeneros();
+            repositorio.obtenerTodosLosGeneros();
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
@@ -39,6 +39,11 @@ namespace PeliculasAPI.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        public Guid obtenerGUIDWeatherForecastController()
+        {
+            return repositorio.obtenerGuid();
         }
     }
 }

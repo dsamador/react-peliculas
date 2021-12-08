@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.Logging;
 using PeliculasAPI.Entidades;
+using PeliculasAPI.Filtros;
 using PeliculasAPI.Repositorios;
 using System;
 using System.Collections.Generic;
@@ -11,6 +14,7 @@ namespace PeliculasAPI.Controllers
 {
     [Route("api/generos")]
     [ApiController]// si el modelo de una accion es invalido se devuelve un error
+    //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]//protege todo el controlador
     public class GenerosController: ControllerBase //tiene el 404
     {
         private readonly IRepositorio repositorio;
@@ -29,6 +33,8 @@ namespace PeliculasAPI.Controllers
         [HttpGet] //api/generos
         [HttpGet("listado")] //api/generos/listado
         [HttpGet("/listadogeneros")] // /listadogeneros
+        //[ResponseCache(Duration = 60)]        
+        [ServiceFilter(typeof(MiFiltroDeAccion))]
         public ActionResult<List<Genero>> Get()
         {
             logger.LogInformation("Vamos a mostrar los generos");
@@ -53,8 +59,7 @@ namespace PeliculasAPI.Controllers
 
             if(genero == null)
             {
-                logger.LogWarning($"No pudimos encontrar el genero de id {Id}");
-                return NotFound();//esto viene de ActionResult
+                throw new ApplicationException($"El genero de id {Id} no fue encontrado");                
             }                
 
             return genero;

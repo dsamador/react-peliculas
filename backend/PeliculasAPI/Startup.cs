@@ -35,6 +35,16 @@ namespace PeliculasAPI
             {
                 options.Filters.Add(typeof(FiltroDeExcepcion));
             });
+
+            services.AddCors(options =>//configurando cors
+            {
+                var frontendURL = Configuration.GetValue<string>("frontend_url");//esto viene del appsettings.json
+                options.AddDefaultPolicy(builder =>
+                {
+                    builder.WithOrigins(frontendURL).AllowAnyMethod().AllowAnyHeader();
+                });
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PeliculasAPI", Version = "v1" });
@@ -53,7 +63,9 @@ namespace PeliculasAPI
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();            
+            app.UseRouting();
+
+            app.UseCors();
 
             app.UseAuthentication();
 

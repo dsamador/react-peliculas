@@ -54,3 +54,10 @@ H:\front\react-peliculas\backend\PeliculasAPI\obj\Debug\net5.0\PeliculasAPI.dll
 H:\front\react-peliculas\backend\PeliculasAPI\obj\Debug\net5.0\ref\PeliculasAPI.dll
 H:\front\react-peliculas\backend\PeliculasAPI\obj\Debug\net5.0\PeliculasAPI.pdb
 H:\front\react-peliculas\backend\PeliculasAPI\obj\Debug\net5.0\PeliculasAPI.genruntimeconfig.cache
+H:\front\react-peliculas\backend\PeliculasAPI\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+H:\front\react-peliculas\backend\PeliculasAPI\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+H:\front\react-peliculas\backend\PeliculasAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+H:\front\react-peliculas\backend\PeliculasAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+H:\front\react-peliculas\backend\PeliculasAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+H:\front\react-peliculas\backend\PeliculasAPI\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+H:\front\react-peliculas\backend\PeliculasAPI\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

@@ -44,10 +44,11 @@ namespace PeliculasAPI.Controllers
         }
 
         [HttpPost]
-        public async ActionResult Post([FromBody] Genero genero)
+        public async Task<ActionResult> Post([FromBody] Genero genero)
         {
             context.Add(genero);
             await context.SaveChangesAsync();
+            return NoContent();
         }
 
         [HttpPut]

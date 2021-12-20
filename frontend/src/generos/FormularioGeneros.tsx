@@ -10,7 +10,9 @@ export default function FormularioGeneros(props: formularioGenerosProps){
         <Formik initialValues={props.modelo}
             onSubmit={props.onSubmit}
             validationSchema={Yup.object({
-                nombre: Yup.string().required('Este campo es requerido').primeraLetraMayuscula()
+                nombre: Yup.string().required('Este campo es requerido')
+                .max(50, 'La longitud maxima es de 50 caracteres')
+                .primeraLetraMayuscula()
             })}
         >
             {(formikProps)=>(

@@ -10,7 +10,7 @@ namespace PeliculasAPI.Entidades
         public int Id { get; set; }
 
         [Required(ErrorMessage = "El campo {0} es requerido")]
-        [StringLength(maximumLength: 50, ErrorMessage = "{0} no debe tener mas de 20 caracteres")]
+        [StringLength(maximumLength: 50, ErrorMessage = "{0} no debe tener mas de 50 caracteres")]
         [PrimeraLetraMayuscula]
         public string Nombre { get; set; }      
     }

@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using PeliculasAPI.ApiBehavior;
 using PeliculasAPI.Filtros;
 using System;
 using System.Collections.Generic;
@@ -44,11 +45,13 @@ namespace PeliculasAPI
                 });
             });
 
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();            
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer();
+            services.AddResponseCaching();
             services.AddControllers(options =>
             {
                 options.Filters.Add(typeof(FiltroDeExcepcion));
-            });
+                options.Filters.Add(typeof(ParsearBadRequest));
+            }).ConfigureApiBehaviorOptions(BehaviorBadRequests.Parsear);
             
 
             services.AddSwaggerGen(c =>

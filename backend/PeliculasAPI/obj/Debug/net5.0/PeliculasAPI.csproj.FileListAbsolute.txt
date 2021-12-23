@@ -86,3 +86,5 @@ H:\front\react-peliculas\backend\PeliculasAPI\bin\Debug\net5.0\runtimes\win-x86\
 H:\front\react-peliculas\backend\PeliculasAPI\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 H:\front\react-peliculas\backend\PeliculasAPI\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 H:\front\react-peliculas\backend\PeliculasAPI\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+H:\front\react-peliculas\backend\PeliculasAPI\bin\Debug\net5.0\AutoMapper.dll
+H:\front\react-peliculas\backend\PeliculasAPI\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll

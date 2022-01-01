@@ -15,14 +15,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+
 namespace PeliculasAPI.Controllers
 {
     [Route("api/generos")]
     [ApiController]// si el modelo de una accion es invalido se devuelve un error
     //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]//protege todo el controlador
     public class GenerosController: ControllerBase //tiene el 404
-    {
-        private readonly IRepositorio repositorio;        
+    {        
         private readonly ILogger<GenerosController> logger;
         private readonly ApplicationDbContext context;
         private readonly IMapper mapper;
